@@ -159,8 +159,14 @@ export const getApplicationsByJobId = async (req, res) => {
 export const getApplicationsByCandidateId = async (req, res) => {
   try {
     const applications = await Application.find({
-      candidate_id: req.user.user._id,
-    }).populate("job_id", "title");
+      candidate_id: req.user._id,
+    })
+      .populate("job_id", "title")
+      .populate({
+        path: "job_id",
+        select: "title location",
+        populate: { path: "company_id", select: "name" },
+      });
 
     if (!applications)
       return res.status(400).json({ message: "No applications found" });
