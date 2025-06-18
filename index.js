@@ -8,10 +8,13 @@ import jobRoute from "./routes/job.route.js";
 import companyRoute from "./routes/company.route.js";
 import savedJobsRouter from "./routes/savedJobs.route.js";
 import applicationRoute from "./routes/application.route.js";
+import job from "./config/cron.js";
 
 const app = express();
 
 dotenv.config();
+
+job.start();
 
 const port = process.env.PORT || 3000;
 
