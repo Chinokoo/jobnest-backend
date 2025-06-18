@@ -22,7 +22,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "true",
+    origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
