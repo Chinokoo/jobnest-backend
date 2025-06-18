@@ -18,7 +18,10 @@ const port = process.env.PORT || 3000;
 app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
 app.use(
-  cors({ origin: "https://job-nest-gamma.vercel.app/", credentials: true })
+  cors({
+    origin: "https://job-nest-r3mbfjqex-peters-projects-2abaeda5.vercel.app/",
+    credentials: true,
+  })
 );
 
 app.use("/api/auth", authRoute);
